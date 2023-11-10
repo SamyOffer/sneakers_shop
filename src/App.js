@@ -1,11 +1,11 @@
 import Header from './components/Header'
-import ImageHeader from './components/ImageHeader';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <ImageHeader />
+      <HomePage />
     </div>
   );
 }

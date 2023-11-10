@@ -4,8 +4,8 @@ import { BsBagCheck } from 'react-icons/bs';
 
 const Header = () => {
   return (
-    <div className='header black p-4 flex justify-between items-center'>
-
+    // Header de la page permet d'afficher le nom de la boutique, les catégories, le compte et le panier
+    <div className='header black p-4 flex justify-between items-center'> 
       <div className='SneakersShop text-2xl font-bold'>
         Sneakers Shop
       </div>
@@ -24,7 +24,6 @@ const Header = () => {
       <div className='Panier ml-4 hover:text-gray-300' style={{ cursor: 'pointer'}}>
         <BsBagCheck />
       </div>  
-      
     </div>
   )
 }
