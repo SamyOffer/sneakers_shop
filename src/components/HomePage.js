@@ -36,9 +36,9 @@ const HomePage = () => {
       <div
         className="text-3xl text-left font-bold "
         style={{ marginLeft: "20%" }}>
-        New Items
+        New Items - {new Date().getFullYear()}
       </div>
-      <div className='flex flex-wrap ml-44'>
+      <div className='flex flex-wrap ml-44 mt-5'>
         {images.slice(0,8).map((modele) => (
             <Link to={`/ProductPage/${modele.id}`} className='cursor-pointer mb-8 mr-8'>
             <img
@@ -55,52 +55,29 @@ const HomePage = () => {
         ))}
         </div>
 
-      {/*
+      
       <div
         className="text-3xl text-left font-bold "
         style={{ marginLeft: "20%" }}
       >
         See all
       </div>
-      <div
-        className="NouvellesImages flex flex-row flex-wrap space-x-10"
-        style={{ marginLeft: "10em" }}>
-        <div className="NouvellesImages__image">
-        <Link to="/ProductPage/air_max_90" className="cursor-pointer">
-          <img
-            src={air_max_90}
-            alt="air_max_90"
-            className="object-cover w-[15em] h-[15em] "/>
-          </Link>
+      <div className='flex flex-wrap ml-44 mt-5'>
+        {images.map((modele) => (
+            <Link to={`/ProductPage/${modele.id}`} className='cursor-pointer mb-8 mr-8'>
+            <img
+                src={modele.image}
+                alt={modele.nom}
+                key={modele.id}
+                className="object-cover w-[15em] h-[15em]"
+            />        
+            <div className='text-xl font-bold flex justify-between'>
+                <div>{modele.nom}</div>
+                <div>{modele.prix}€</div>
+            </div>
+            </Link>
+        ))}
         </div>
-        
-        <div className="NouvellesImages__image">
-        <Link to="/product/air_force_1" className="cursor-pointer">
-          <img
-            src={air_force_1}
-            alt="air_max_90"
-            className="object-cover w-[15em] h-[15em] "/>
-          </Link>
-        </div>
-        <div className="NouvellesImages__image">
-        <Link to="/product/nike_react_element" className="cursor-pointer">
-          <img
-            src={nike_react_element}
-            alt="air_max_90"
-            className="object-cover w-[15em] h-[15em] "/>
-          </Link>
-        </div>
-        <div className="NouvellesImages__image">
-        <Link to="/product/air_max_90" className="cursor-pointer">
-          <img
-            src={air_max_90}
-            alt="air_max_90"
-            className="object-cover w-[15em] h-[15em] "/>
-          </Link>
-        </div>
-      </div>
-    */}
-
     </div>
   );
 };
