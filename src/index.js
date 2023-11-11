@@ -1,13 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css'; // Chemin vers votre fichier Tailwind
-
 import App from './App';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import MyAccount from './components/MyAccount';
+import LoginPage from './components/LoginPage';
+import RegisterPage from './components/RegisterPage';
+import SneakersPage from './components/SneakersPage';
+import ProductPage from './components/ProductPage';
+const Root = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/MyAccount" element={<MyAccount />} />
+      <Route path="/LoginPage" element={<LoginPage />} />
+      <Route path="/RegisterPage" element={<RegisterPage />} />
+      <Route path="/SneakersPage" element={<SneakersPage />} />
+      <Route path="/ProductPage/:sneakerId" element={<ProductPage />} />
+    </Routes>
+  </Router>
 );
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<Root />);

@@ -1,28 +1,30 @@
 import React from 'react'
 import { VscAccount } from 'react-icons/vsc';
 import { BsBagCheck } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     // Header de la page permet d'afficher le nom de la boutique, les catégories, le compte et le panier
-    <div className='header black p-4 flex justify-between items-center'> 
+    <div className='header black p-4 flex justify-between items-center sticky top-0 z-50 bg-white hover:bg-white'> 
       <div className='SneakersShop text-2xl font-bold'>
-        Sneakers Shop
+        <Link to='/'>SneakersShop</Link>
       </div>
-      <div className='Sneakers '>
-          Sneakers
+      <div className='Sneakers  hover:text-gray-300'>
+        <Link to='/sneakersPage'>Sneakers</Link>
       </div>
-      <div className='SinglesDay ml-4 hover:text-gray-300' style={{ cursor: 'pointer'}}>
-        Single's Day
+      <div className='SinglesDay ml-4 hover:text-gray-300'>
+        <Link to='/singlesDay'>Single's Day</Link>
       </div>
-      <div className='Livraison48h ml-4 hover:text-gray-300' style={{ cursor: 'pointer'}}>
-          Livraison 48h
+      <div className='shipping48h ml-4 hover:text-gray-300' >
+        <Link to='/shipping48h'>Shipping 48h</Link>
       </div>
-      <div className='Compte ml-4 hover:text-gray-300' style={{ cursor: 'pointer'}}>
-        <VscAccount />
+      <div className='Compte ml-4 hover:text-gray-300' >
+        <Link to= '/MyAccount'><VscAccount /></Link>
+        
       </div> 
-      <div className='Panier ml-4 hover:text-gray-300' style={{ cursor: 'pointer'}}>
-        <BsBagCheck />
+      <div className='Panier ml-4 hover:text-gray-300'>
+        <Link to='/cart'><BsBagCheck /></Link>
       </div>  
     </div>
   )
