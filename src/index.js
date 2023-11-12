@@ -8,6 +8,7 @@ import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
 import SneakersPage from './components/SneakersPage';
 import ProductPage from './components/ProductPage';
+import CartPage from './components/CartPage';
 const Root = () => (
   <Router>
     <Routes>
@@ -17,6 +18,7 @@ const Root = () => (
       <Route path="/RegisterPage" element={<RegisterPage />} />
       <Route path="/SneakersPage" element={<SneakersPage />} />
       <Route path="/ProductPage/:sneakerId" element={<ProductPage />} />
+      <Route path="/CartPage" element={<CartPage />} />
     </Routes>
   </Router>
 );

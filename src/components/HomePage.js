@@ -33,23 +33,24 @@ const HomePage = () => {
       {" "}
       {/* Utilisation de flex-col pour une disposition en colonne */}
       <img src={photo_garde} alt="photo_garde" />
+      <SlidingAnimationHomePage/>
       <div
         className="text-3xl text-left font-bold "
         style={{ marginLeft: "20%" }}>
         New Items - {new Date().getFullYear()}
       </div>
       <div className='flex flex-wrap ml-44 mt-5'>
-        {images.slice(0,8).map((modele) => (
-            <Link to={`/ProductPage/${modele.id}`} className='cursor-pointer mb-8 mr-8'>
+        {images.slice(0,8).map((sneaker) => (
+            <Link to={`/ProductPage/${sneaker.id}`} className='cursor-pointer mb-8 mr-8'>
             <img
-                src={modele.image}
-                alt={modele.nom}
-                key={modele.id}
+                src={sneaker.image}
+                alt={sneaker.nom}
+                key={sneaker.id}
                 className="object-cover w-[15em] h-[15em]"
             />        
             <div className='text-xl font-bold flex justify-between'>
-                <div>{modele.nom}</div>
-                <div>{modele.prix}€</div>
+                <div>{sneaker.nom}</div>
+                <div>{sneaker.prix}€</div>
             </div>
             </Link>
         ))}
@@ -63,17 +64,17 @@ const HomePage = () => {
         See all
       </div>
       <div className='flex flex-wrap ml-44 mt-5'>
-        {images.map((modele) => (
-            <Link to={`/ProductPage/${modele.id}`} className='cursor-pointer mb-8 mr-8'>
+        {images.map((sneaker) => (
+            <Link to={`/ProductPage/${sneaker.id}`} className='cursor-pointer mb-8 mr-8'>
             <img
-                src={modele.image}
-                alt={modele.nom}
-                key={modele.id}
+                src={sneaker.image}
+                alt={sneaker.nom}
+                key={sneaker.id}
                 className="object-cover w-[15em] h-[15em]"
             />        
             <div className='text-xl font-bold flex justify-between'>
-                <div>{modele.nom}</div>
-                <div>{modele.prix}€</div>
+                <div>{sneaker.nom}</div>
+                <div>{sneaker.prix}€</div>
             </div>
             </Link>
         ))}

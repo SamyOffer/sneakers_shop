@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext  } from "react";
 import { useParams } from "react-router-dom";
 import modeles from "../database/modeles.json";
 import Header from "./Header";
 import marques from "../database/marques.json";
 import { Listbox, Transition } from "@headlessui/react";
+import CartContext from "./CartContext";
+import { Link } from 'react-router-dom';
 
 const ProductPage = () => {
-  const { sneakerId } = useParams(); // Utilisez sneakerId ici
-  const [sneaker] = useState(modeles[sneakerId - 1]);
+  const context = useContext(CartContext);
+  const { sneakerId } = useParams(); // on récupère l'id de la sneaker dans l'url
+  const [sneaker] = useState(modeles[sneakerId - 1]); // car les tableaux json commencent à l'index 0
   const [marque, setMarque] = useState(0);
   const [images, setImages] = useState([]);
   const toutesLesTailles = sneaker.tailles.map((taille, index) => ({
@@ -26,17 +29,21 @@ const ProductPage = () => {
     };
     importImages();
     setMarque(marques[sneaker.marque_id]); // on met à jour le nom de la marque après avoir récupéré les données
-  }, [sneaker.lien, sneaker.marque_id]);
+  }, [sneaker.lien, sneaker.marque_id,]);
 
   useEffect(() => {
+    context.taille = tailleEnCours;
+    context.id = sneaker.id;
     // Perform actions based on changes to tailleEnCours if needed
-  }, [tailleEnCours]);
+    
+  }, [tailleEnCours, context, sneaker.id]);
 
   console.log("tailleEnCours", tailleEnCours);
   return (
+    <CartContext.Provider value={context}>
     <div>
       <Header />
-      <div className="flex ">
+      <div className="flex">
         <img
           src={images}
           alt="air_max_90"
@@ -48,7 +55,7 @@ const ProductPage = () => {
           <p>From {sneaker.prix}€</p>
         </div>
         {/* Affichage du menu déroulant des tailles disponibles */}
-        <div className="ml-32 text-xl font-bold mt-10">
+        <div className="ml-32 text-xl font-bold mt-10 flex flex-col">
           <Listbox
             as="div"
             className="space-y-1 w-full"
@@ -140,11 +147,20 @@ const ProductPage = () => {
               </>
             )}
           </Listbox>
+            <div className=" text-xl font-bold mt-10 ">
+              <Link to={`/CartPage/`} className='cursor-pointer mb-8 mr-8'>
+                <button className="bg-black hover:text-gray-300 text-white font-bold py-2 px-4 rounded">
+                  Add to cart
+                </button>
+              </Link>
+            </div>
         </div>
-      </div>
+        
+    </div>
 
       {/* Affichez d'autres détails de la sneaker... */}
     </div>
+    </CartContext.Provider>
   );
 };
 

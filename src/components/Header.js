@@ -24,7 +24,7 @@ const Header = () => {
         
       </div> 
       <div className='Panier ml-4 hover:text-gray-300'>
-        <Link to='/cart'><BsBagCheck /></Link>
+        <Link to='/CartePage'><BsBagCheck /></Link>
       </div>  
     </div>
   )
