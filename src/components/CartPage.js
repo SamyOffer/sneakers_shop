@@ -35,7 +35,7 @@ const CartPage = ({}) => {
       <Header />
       {/* Partie gauche de l'affichage */}
       {/* Contenu de la première paire  */}
-      <div className="ml-44 mt-10 mr-96 bg-black">
+      <div className="ml-44 mt-10 mr-96"> {/* mettre en noir le fond pour capter mieux - bg-black */}
         <div className="flex text-3xl font-bold ">
           My Cart 
         </div>
